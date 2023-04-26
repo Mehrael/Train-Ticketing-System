@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->boolean('type')->default(false);
             $table->string('photo')->nullable();
+            $table->timestamps();
         });
     }
 
