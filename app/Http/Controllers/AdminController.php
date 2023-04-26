@@ -10,7 +10,7 @@ class AdminController extends Controller
     public function station()
     {
         $stations = DB::table('stations')->get();
-        return view('system.admin.Station',compact('stations'));
+        return view('system.admin.Station', compact('stations'));
     }
 
     public function addStation(Request $request)
@@ -25,7 +25,7 @@ class AdminController extends Controller
     public function trains()
     {
         $trains = DB::table('trains')->get();
-        return view('system.admin.Trains',compact('trains'));
+        return view('system.admin.Trains', compact('trains'));
     }
 
     public function addTrain(Request $request)
@@ -34,8 +34,40 @@ class AdminController extends Controller
         $type = $request->type;
         DB::table('trains')->insert([
             'TrainNum' => $trainNum,
-            "Type"=>$type
+            "Type" => $type
         ]);
         return redirect('trains');
+    }
+
+    public function schedule()
+    {
+        $schedule = DB::table('trains')
+            ->join('schedules', 'trains.id', '=', 'schedules.TrainID')
+            ->join('stations as start_station', 'start_station.id', '=', 'schedules.StartStationID')
+            ->join('stations as end_station', 'end_station.id', '=', 'schedules.EndStationID')
+            ->select('trains.TrainNum', 'start_station.name as start_station_name', 'end_station.name as end_station_name', 'schedules.Date', 'schedules.Time', 'schedules.id')
+            ->get();
+
+        $trains = DB::table('trains')->get();
+        $stations = DB::table('stations')->get();
+        return view('system.admin.Schedule', compact('schedule', 'trains', 'stations'));
+    }
+
+    public function addToSchedule(Request $request)
+    {
+        $train = $request->TrainID;
+        $date = $request->date;
+        $time = $request->time;
+        $StartID = $request->StartID;
+        $EndID = $request->EndID;
+
+        DB::table('schedules')->insert([
+            'TrainID' => $train,
+            "Date" => $date,
+            "Time" => $time,
+            "StartStationID" => $StartID,
+            "EndStationID" => $EndID
+        ]);
+        return redirect('schedule');
     }
 }

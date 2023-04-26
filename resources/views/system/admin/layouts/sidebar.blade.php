@@ -203,18 +203,19 @@
             </li><!-- End Trains Page Nav -->
 
             <li class="nav-item">
+                <a class="nav-link collapsed" href="{{'schedule'}}">
+                    <i class="bi bi-table"></i>
+                    <span>Schedule</span>
+                </a>
+            </li><!-- End Schedule Page Nav -->
+
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="">
                     <i class="bi bi-ticket-detailed"></i>
                     <span>Tickets</span>
                 </a>
             </li><!-- End Tickets Page Nav -->
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="">
-                    <i class="bi bi-table"></i>
-                    <span>Schedule</span>
-                </a>
-            </li><!-- End Schedule Page Nav -->
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="">

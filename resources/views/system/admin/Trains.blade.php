@@ -7,7 +7,7 @@
 <main id="main" class="main">
 
     <div class="pagetitle">
-        <h1>Station</h1>
+        <h1>Train</h1>
     </div><!-- End Page Title -->
     <section class="section dashboard">
         <div class="row">
@@ -36,7 +36,7 @@
                         <div class="card recent-sales overflow-auto">
 
                             <div class="card-body">
-                                <h5 class="card-title">Stations</h5>
+                                <h5 class="card-title">Trains</h5>
 
                                 <table class="table table-borderless datatable">
                                     <thead>
