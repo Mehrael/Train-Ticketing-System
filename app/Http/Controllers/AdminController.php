@@ -22,5 +22,20 @@ class AdminController extends Controller
         return redirect('station');
     }
 
+    public function trains()
+    {
+        $trains = DB::table('trains')->get();
+        return view('system.admin.Trains',compact('trains'));
+    }
 
+    public function addTrain(Request $request)
+    {
+        $trainNum = $request->trainNum;
+        $type = $request->type;
+        DB::table('trains')->insert([
+            'TrainNum' => $trainNum,
+            "Type"=>$type
+        ]);
+        return redirect('trains');
+    }
 }

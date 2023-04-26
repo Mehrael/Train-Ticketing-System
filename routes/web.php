@@ -33,3 +33,7 @@ Route::get('logout', [\App\Http\Controllers\Controller::class, 'logout']);
 Route::get('station', [AdminController::class, 'station']);
 
 Route::post('addStation', [AdminController::class, 'addStation']);
+
+Route::get('trains', [AdminController::class, 'trains']);
+
+Route::post('addTrain', [AdminController::class, 'addTrain']);
