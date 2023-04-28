@@ -4,7 +4,8 @@
 
     <!-- ======= Breadcrumbs ======= -->
     <div class="breadcrumbs">
-        <div class="page-header d-flex align-items-center" style="background-image: url('assets2/img/page-header.jpg');">
+        <div class="page-header d-flex align-items-center"
+             style="background-image: url('assets2/img/page-header.jpg');">
             <div class="container position-relative">
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-6 text-center">
@@ -22,18 +23,20 @@
                 <div class="card recent-sales overflow-auto">
 
                     <div class="card-body">
-                        <h4 class="card-title">Schedules</h4>
-<br>
+                        <h4 class="card-title" style="color: #0a53be">Schedule</h4>
+                        <br>
                         <table class="table table-borderless datatable">
                             <thead>
-                            <tr>
+                            <tr style="color: #001f8d">
                                 <th scope="col">Train Number</th>
                                 <th scope="col">Date</th>
                                 <th scope="col">Time</th>
                                 <th scope="col">From</th>
                                 <th scope="col">To</th>
+                                <th scope="col">Train Type</th>
                             </tr>
                             </thead>
+
                             <tbody>
                             @foreach($schedule as $s)
                                 <tr>
@@ -42,6 +45,11 @@
                                     <td>{{$s->Time}}</td>
                                     <td>{{$s->start_station_name}}</td>
                                     <td>{{$s->end_station_name}}</td>
+                                    @if($s->Type == 0)
+                                        <td style="color: goldenrod"> Express</td>
+                                    @else
+                                        <td style="color: green"> VIP</td>
+                                    @endif
                                 </tr>
                             @endforeach
 
