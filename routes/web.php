@@ -41,3 +41,7 @@ Route::post('addTrain', [AdminController::class, 'addTrain']);
 Route::get('schedule', [AdminController::class, 'schedule']);
 
 Route::post('addToSchedule', [AdminController::class, 'addToSchedule']);
+
+Route::get('tickets', [AdminController::class, 'tickets']);
+
+Route::post('addTicket', [AdminController::class, 'addTicket']);

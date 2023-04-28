@@ -70,4 +70,37 @@ class AdminController extends Controller
         ]);
         return redirect('schedule');
     }
+
+    public function tickets()
+    {
+        $schedule = DB::table('trains')
+            ->join('schedules', 'trains.id', '=', 'schedules.TrainID')
+            ->join('stations as start_station', 'start_station.id', '=', 'schedules.StartStationID')
+            ->join('stations as end_station', 'end_station.id', '=', 'schedules.EndStationID')
+            ->select('trains.TrainNum', 'start_station.name as start_station_name', 'end_station.name as end_station_name', 'schedules.Date', 'schedules.Time', 'schedules.id')
+            ->get();
+
+        $tickets = DB::table('tickets')
+            ->join('schedules', 'schedules.id', '=', 'tickets.ScheduleID')
+            ->join('trains', 'trains.id', '=', 'schedules.TrainID')
+            ->join('stations as start', 'start.id', '=', 'schedules.StartStationID')
+            ->join('stations as end', 'end.id', '=', 'schedules.EndStationID')
+            ->select('schedules.*', 'trains.*', 'tickets.class', 'tickets.price', 'start.name as start_station', 'end.name as end_station')
+            ->get();
+        return view('system.admin.Tickets', compact('schedule', 'tickets'));
+    }
+
+    public function addTicket(Request $request)
+    {
+        $schedule = $request->scheduleID;
+        $class = $request->class;
+        $price = $request->price;
+
+        DB::table('tickets')->insert([
+            'ScheduleID' => $schedule,
+            "class" => $class,
+            "price" => $price,
+        ]);
+        return redirect('tickets');
+    }
 }

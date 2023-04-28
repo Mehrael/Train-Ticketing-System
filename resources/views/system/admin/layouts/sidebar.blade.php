@@ -189,7 +189,7 @@
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="{{url('station')}}">
-                    <i class="bi bi-speedometer2"></i>
+                    <i class="bi bi-ev-station"></i>
                     <span>Station</span>
                 </a>
 
@@ -210,7 +210,7 @@
             </li><!-- End Schedule Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="">
+                <a class="nav-link collapsed" href="{{'tickets'}}">
                     <i class="bi bi-ticket-detailed"></i>
                     <span>Tickets</span>
                 </a>
