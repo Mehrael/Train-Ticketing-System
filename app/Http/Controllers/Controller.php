@@ -11,6 +11,16 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
 
+    public function index()
+    {
+        $userType = auth()->user()->type;
+
+        if($userType == 0)
+            return view('system.user.index');
+        else
+            return view('system.admin.dashboard');
+    }
+
     public function logout()
     {
         Auth::logout();

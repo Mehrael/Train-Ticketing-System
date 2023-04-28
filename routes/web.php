@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,18 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('404');
-});
 
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('system.admin.index');
-    })->name('dashboard');
+    Route::get('/dashboard', [\App\Http\Controllers\Controller::class,'index'])->name('home');
 });
 
 Route::get('logout', [\App\Http\Controllers\Controller::class, 'logout']);
@@ -45,3 +41,5 @@ Route::post('addToSchedule', [AdminController::class, 'addToSchedule']);
 Route::get('tickets', [AdminController::class, 'tickets']);
 
 Route::post('addTicket', [AdminController::class, 'addTicket']);
+
+Route::get('ViewTrainSchedules', [UserController::class, 'ViewTrainSchedules']);
