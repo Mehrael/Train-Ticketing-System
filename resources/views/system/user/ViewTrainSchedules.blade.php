@@ -27,7 +27,7 @@
                         <br>
                         <table class="table table-borderless datatable">
                             <thead>
-                            <tr style="color: #001f8d">
+                            <tr>
                                 <th scope="col">Train Number</th>
                                 <th scope="col">Date</th>
                                 <th scope="col">Time</th>

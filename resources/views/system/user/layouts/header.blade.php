@@ -50,7 +50,7 @@
             <ul>
                 <li><a href="dashboard" class="active">Home</a></li>
                 <li><a href="ViewTrainSchedules">Trains' Schedule</a></li>
-                <li><a href="">Services</a></li>
+                <li><a href="Booking">Booking</a></li>
                 <li><a href="">Pricing</a></li>
 {{--                <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>--}}
 {{--                    <ul>--}}

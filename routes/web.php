@@ -21,7 +21,7 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', [\App\Http\Controllers\Controller::class,'index'])->name('home');
+    Route::get('/', [\App\Http\Controllers\Controller::class,'index'])->name('home');
 });
 
 Route::get('logout', [\App\Http\Controllers\Controller::class, 'logout']);
@@ -43,3 +43,7 @@ Route::get('tickets', [AdminController::class, 'tickets']);
 Route::post('addTicket', [AdminController::class, 'addTicket']);
 
 Route::get('ViewTrainSchedules', [UserController::class, 'ViewTrainSchedules']);
+
+Route::get('Booking', [UserController::class, 'Booking']);
+
+Route::post('confirmBooking', [UserController::class, 'confirmBooking']);
