@@ -48,7 +48,7 @@
         <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
         <nav id="navbar" class="navbar">
             <ul>
-                <li><a href="dashboard" class="active">Home</a></li>
+                <li><a href="\" class="active">Home</a></li>
                 <li><a href="ViewTrainSchedules">Trains' Schedule</a></li>
                 <li><a href="Booking">Booking</a></li>
                 <li><a href="">Pricing</a></li>

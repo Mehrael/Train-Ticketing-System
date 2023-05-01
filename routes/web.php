@@ -47,3 +47,7 @@ Route::get('ViewTrainSchedules', [UserController::class, 'ViewTrainSchedules']);
 Route::get('Booking', [UserController::class, 'Booking']);
 
 Route::post('confirmBooking', [UserController::class, 'confirmBooking']);
+
+Route::post('Confirm', [UserController::class, 'Confirm']);
+
+Route::post('UpdateUserData', [UserController::class, 'UpdateUserData']);
