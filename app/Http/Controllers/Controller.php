@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use http\Client\Request;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
@@ -15,7 +16,7 @@ class Controller extends BaseController
     {
         $userType = auth()->user()->type;
 
-        if($userType == 0)
+        if ($userType == 0)
             return view('system.user.index');
         else
             return view('system.admin.dashboard');
@@ -26,4 +27,5 @@ class Controller extends BaseController
         Auth::logout();
         return redirect('/login');
     }
+
 }

@@ -1,8 +1,13 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\UserController;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\URL;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,13 +20,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/', [\App\Http\Controllers\Controller::class,'index'])->name('home');
+    Route::get('/dashboard', [\App\Http\Controllers\Controller::class,'index'])->name('home');
+});
+
+Route::get('/', function (){
+    return redirect('dashboard');
 });
 
 Route::get('logout', [\App\Http\Controllers\Controller::class, 'logout']);

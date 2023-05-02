@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->boolean('verified')->default(false);
             $table->string('password');
             $table->string('phone')->nullable();
             $table->boolean('type')->default(false);
             $table->string('photo')->nullable();
+            $table->timestamp('email_verified_at')->nullable();
             $table->timestamps();
         });
     }
