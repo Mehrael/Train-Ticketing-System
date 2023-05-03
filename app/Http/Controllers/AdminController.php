@@ -10,7 +10,12 @@ class AdminController extends Controller
     public function index()
     {
         $NumOfUsers = DB::table('users')->count();
-        return view('system.admin.index', compact('NumOfUsers'));
+        $NumofTickets = DB::table('bookings')->sum('NumberOfTickets');
+        $total = DB::table('bookings')
+            ->join('tickets', 'bookings.TicketID', '=', 'tickets.id')
+            ->sum(DB::raw('bookings.NumberOfTickets * tickets.price'));
+
+        return view('system.admin.index', compact('NumOfUsers', 'NumofTickets', 'total'));
     }
 
     public function station()
@@ -108,5 +113,20 @@ class AdminController extends Controller
             "price" => $price,
         ]);
         return redirect('tickets');
+    }
+
+    public function bookings()
+    {
+        $bookings = DB::table('bookings')
+            ->join('users', 'users.id', '=', 'bookings.UserID')
+            ->join('tickets', 'tickets.id', '=', 'bookings.TicketID')
+            ->join('schedules', 'schedules.id', '=', 'tickets.ScheduleID')
+            ->join('trains', 'trains.id', '=', 'schedules.TrainID')
+            ->join('stations as start', 'start.id', '=', 'schedules.StartStationID')
+            ->join('stations as end', 'end.id', '=', 'schedules.EndStationID')
+            ->select('bookings.*', 'users.phone', 'users.name as user_name', 'tickets.class', 'tickets.price', 'schedules.Date', 'schedules.Time', 'start.name as start_station', 'end.name as end_station', 'trains.TrainNum', 'trains.Type')
+            ->get();
+
+        return view('system.admin.Bookings', compact('bookings'));
     }
 }

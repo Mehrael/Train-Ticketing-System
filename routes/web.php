@@ -25,10 +25,10 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', [\App\Http\Controllers\Controller::class,'index'])->name('home');
+    Route::get('/dashboard', [\App\Http\Controllers\Controller::class, 'index'])->name('home');
 });
 
-Route::get('/', function (){
+Route::get('/', function () {
     return redirect('dashboard');
 });
 
@@ -47,6 +47,8 @@ Route::get('schedule', [AdminController::class, 'schedule']);
 Route::post('addToSchedule', [AdminController::class, 'addToSchedule']);
 
 Route::get('tickets', [AdminController::class, 'tickets']);
+
+Route::get('bookings', [AdminController::class, 'bookings']);
 
 Route::post('addTicket', [AdminController::class, 'addTicket']);
 

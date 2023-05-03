@@ -20,8 +20,8 @@ class Controller extends BaseController
         if ($userType == 0)
             return view('system.user.index');
         else {
-            $NumOfUsers = DB::table('users')->count();
-            return view('system.admin.index', compact('NumOfUsers'));
+            $ac = new AdminController();
+            return $ac->index();
         }
     }
 
