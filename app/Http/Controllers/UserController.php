@@ -74,11 +74,11 @@ class UserController extends Controller
             return view('system.user.completeData', compact('userData'));
         else {
             DB::table('bookings')->insert([
-               "UserID"=>Auth::id(),
-               "TicketID"=>$request->TicketID,
-                "NumberOfTickets"=>$request->NTic,
-                "BookingDate"=>$request->date,
-                "BookingTime"=>$request->time
+                "UserID" => Auth::id(),
+                "TicketID" => $request->TicketID,
+                "NumberOfTickets" => $request->NTic,
+                "BookingDate" => $request->date,
+                "BookingTime" => $request->time
             ]);
 
             $ticketData = DB::table('tickets')->select('*')->where('id', '=', $request->TicketID)->first();
@@ -95,11 +95,11 @@ class UserController extends Controller
             if ($ticketData->class == 2)
                 $class = "2nd";
 
-            $path = 'QRs/'.time().'.svg';
+            $path = 'QRs/' . time() . '.svg';
 
             $qr = QrCode::format('svg')
                 ->size(500)->errorCorrection('H')
-                ->color(13,66,255)
+                ->color(13, 66, 255)
                 ->margin(1)
                 ->generate("
                 Name: $userData->name,
@@ -111,7 +111,7 @@ class UserController extends Controller
                 Date: $schedule->Date,
                 Train Moving at: $schedule->Time,
                 Booked at: $request->date $request->time",
-                public_path($path)
+                    public_path($path)
                 );
 
             return view('system.user.QR', compact('path'));

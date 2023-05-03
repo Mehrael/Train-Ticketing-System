@@ -20,6 +20,10 @@ use Illuminate\Support\Facades\URL;
 |
 */
 
+Route::fallback(function () {
+    return view('404');
+});
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
