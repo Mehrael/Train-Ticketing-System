@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class Controller extends BaseController
 {
@@ -18,8 +19,10 @@ class Controller extends BaseController
 
         if ($userType == 0)
             return view('system.user.index');
-        else
-            return view('system.admin.dashboard');
+        else {
+            $NumOfUsers = DB::table('users')->count();
+            return view('system.admin.index', compact('NumOfUsers'));
+        }
     }
 
     public function logout()

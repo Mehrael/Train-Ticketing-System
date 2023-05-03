@@ -10,8 +10,9 @@ class AdminController extends Controller
     public function index()
     {
         $NumOfUsers = DB::table('users')->count();
-        return view('system.admin.index',compact('NumOfUsers'));
+        return view('system.admin.index', compact('NumOfUsers'));
     }
+
     public function station()
     {
         $stations = DB::table('stations')->get();
