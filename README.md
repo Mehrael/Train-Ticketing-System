@@ -5,7 +5,7 @@ The Train Ticketing system is a web-based application that allows users to view 
 
 When a user accesses the system, they are required to register and verify their email address to use the system. This is done to ensure that only genuine users can access and use the system. Once the user is registered and logged in, they can view train schedules, select their preferred trains, and proceed to book tickets.   
 
-To ensure that users complete their data, they are required to fill in all the necessary information before booking tickets. This includes their name, contact information, and payment details. Once the user completes their data, they can proceed to book tickets.   
+To ensure that users complete their data, they are required to fill in all the necessary information before booking tickets. Once the user completes their data, they can proceed to book tickets.   
 
 The ticket is generated as a QR code, which the user can download and save on their device. This ensures that users do not have to carry a physical ticket and can easily access their ticket using their device.   
 
