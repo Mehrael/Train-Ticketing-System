@@ -11,7 +11,7 @@ The ticket is generated as a QR code, which the user can download and save on th
 
 The admin has access to a backend system that allows them to add trains, stations, schedules, and tickets. They can also view all the bookings made on the system.   
 
-In case a user or admin forgets their password, they can reset it using the email verification feature. The system sends an email to the user's registered email address with a link to reset their password. This ensures that users can easily recover their account if they forget their password.   
+In case a user or admin forgets their password. The system sends an email to the user's registered email address with a link to reset their password. This ensures that users can easily recover their account if they forget their password.   
 
 Overall, the Train Ticketing system provides a convenient and easy way for users to book train tickets online while ensuring that the system is secure and accessible only to verified users.   
 
